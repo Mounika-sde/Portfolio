@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Production Builds
+dist/
+frontend/dist/
+build/
+
+# .NET & Visual Studio build outputs
+bin/
+obj/
+backend/bin/
+backend/obj/
+.vs/
+*.user
+*.suo
+
+# Environment and local settings
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

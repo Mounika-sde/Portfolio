@@ -1,0 +1,23 @@
+{
+  "name": "mounika-portfolio-fullstack",
+  "version": "1.0.0",
+  "description": "Professional Full-Stack Developer Portfolio for Mounika N (.NET Core, Angular, React, PostgreSQL)",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "api": "dotnet run --project backend/Portfolio.Api.csproj"
+  },
+  "keywords": [
+    "portfolio",
+    "dotnet",
+    "csharp",
+    "react",
+    "angular",
+    "postgresql",
+    "fullstack"
+  ],
+  "author": "Mounika N <nmounika.sde@gmail.com>",
+  "license": "MIT"
+}
