@@ -2,6 +2,24 @@ import React from 'react';
 import { X, Layers, CheckCircle2, Cpu } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
+  React.useEffect(() => {
+    if (!project) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (

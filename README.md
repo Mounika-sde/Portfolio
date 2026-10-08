@@ -44,7 +44,7 @@ d:\V\M\Portfolio\
   - **CMI Connect** – Healthcare Analytics & Reimbursement Platform (.NET, LinqDB, PostgreSQL, Angular)
   - **LinkedIn Scraper** – Smart Browser Lead Extractor & Funnel CRM Sync (JavaScript, React, .NET, SQL)
 - 📄 **Interactive Resume Modal & ATS Print System:** Built-in modal resume with `@media print` CSS optimization for 1-click printing or saving as PDF.
-- 📋 **1-Click Copy-to-Clipboard & Toasts:** Instant copy for Email (`nmounika.sde@gmail.com`), Phone (`+91 9390433157`), and LinkedIn.
+- 📋 **1-Click Copy-to-Clipboard & Toasts:** Instant copy for Email (`nmounika.sde@gmail.com`) and LinkedIn.
 - ✉️ **Interactive Contact Form:** Validated client-side form with direct `mailto:` and API endpoints.
 - 📱 **100% Responsive Design:** Smooth layouts optimized across 4K displays, desktops, tablets, and mobile phones.
 

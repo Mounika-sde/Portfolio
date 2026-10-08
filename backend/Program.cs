@@ -19,12 +19,29 @@ builder.Services.AddDbContext<PortfolioDbContext>(options =>
 // Register Portfolio Domain Services
 builder.Services.AddScoped<IPortfolioService, PortfolioService>();
 
+// Add Health Checks
+builder.Services.AddHealthChecks();
+
 // Configure CORS for Frontend React/Angular clients
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://localhost:3000", "http://localhost:4200", "https://mounika-n-portfolio.netlify.app")
+        policy.WithOrigins(
+                "http://localhost:5173",
+                "http://localhost:3000",
+                "http://localhost:4200",
+                "https://mounika-sde.github.io",
+                "https://mounika-n-portfolio.netlify.app"
+              )
+              .SetIsOriginAllowed(origin => 
+                  origin.EndsWith(".web.app") || 
+                  origin.EndsWith(".firebaseapp.com") || 
+                  origin.EndsWith(".github.io") ||
+                  origin.EndsWith(".netlify.app") ||
+                  origin.EndsWith(".vercel.app") ||
+                  origin.StartsWith("http://localhost:")
+              )
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -65,6 +82,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.MapControllers();
+app.MapHealthChecks("/health");
 
 // Root route redirect/info
 app.MapGet("/", () => Results.Ok(new

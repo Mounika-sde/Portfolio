@@ -99,11 +99,13 @@ export default function Navbar({ theme, toggleTheme, isResumeUnlocked, onOpenRes
             <span>Contact</span>
           </a>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Toggle */}
           <button 
             className="mobile-menu-btn" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -111,7 +113,7 @@ export default function Navbar({ theme, toggleTheme, isResumeUnlocked, onOpenRes
       </div>
 
       {/* Mobile Drawer */}
-      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+      <div id="mobile-navigation-drawer" className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-list">
           <li><a href="#hero" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
           <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
