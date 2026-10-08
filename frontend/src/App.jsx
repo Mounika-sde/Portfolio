@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { portfolioData } from './data/portfolioData';
 import { apiService } from './services/apiService';
 
-import ParticleCanvas from './components/ParticleCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -101,7 +100,7 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
-      <ParticleCanvas />
+      <div className="ambient-background" aria-hidden="true" />
       
       <Navbar
         theme={theme}
