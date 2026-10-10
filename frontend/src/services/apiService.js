@@ -1,9 +1,9 @@
-import { portfolioData } from '../data/portfolioData';
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/portfolio';
+// Only call backend if an explicit API URL is set, or if running locally in development mode
+const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000/api/portfolio' : null);
 
 export const apiService = {
   async getProfile() {
+    if (!API_BASE_URL) return portfolioData.profile;
     try {
       const res = await fetch(`${API_BASE_URL}/profile`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) {
@@ -17,6 +17,7 @@ export const apiService = {
   },
 
   async getSkills() {
+    if (!API_BASE_URL) return portfolioData.skills;
     try {
       const res = await fetch(`${API_BASE_URL}/skills`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) return await res.json();
@@ -27,6 +28,7 @@ export const apiService = {
   },
 
   async getExperience() {
+    if (!API_BASE_URL) return portfolioData.experience;
     try {
       const res = await fetch(`${API_BASE_URL}/experience`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) return await res.json();
@@ -37,6 +39,7 @@ export const apiService = {
   },
 
   async getProjects() {
+    if (!API_BASE_URL) return portfolioData.projects;
     try {
       const res = await fetch(`${API_BASE_URL}/projects`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) return await res.json();
@@ -47,6 +50,7 @@ export const apiService = {
   },
 
   async getEducation() {
+    if (!API_BASE_URL) return portfolioData.education;
     try {
       const res = await fetch(`${API_BASE_URL}/education`, { signal: AbortSignal.timeout(2000) });
       if (res.ok) return await res.json();
@@ -57,6 +61,7 @@ export const apiService = {
   },
 
   async sendContactMessage(msg) {
+    if (!API_BASE_URL) return { success: true, message: 'Message noted!' };
     try {
       const res = await fetch(`${API_BASE_URL}/contact`, {
         method: 'POST',
