@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "n-mounika-portfolio",
     "public": "frontend/dist",
     "ignore": [
       "firebase.json",
